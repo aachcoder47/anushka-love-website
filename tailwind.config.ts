@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -114,6 +113,26 @@ export default {
 				confetti: {
 					'0%': { transform: 'translateY(0) rotate(0)', opacity: '1' },
 					'100%': { transform: 'translateY(100vh) rotate(360deg)', opacity: '0' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1', transform: 'translateY(0)' },
+					'100%': { opacity: '0', transform: 'translateY(10px)' }
+				},
+				'grow': {
+					'0%': { transform: 'scale(0)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'bounce-subtle': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -124,13 +143,27 @@ export default {
 				'fly-away': 'flyAway 1s forwards',
 				'fade-in': 'fadeIn 1s forwards',
 				'slide-in': 'slideIn 0.8s forwards',
-				'confetti': 'confetti 4s linear forwards'
+				'confetti': 'confetti 4s linear forwards',
+				'fade-in-fast': 'fade-in 0.5s ease-out forwards',
+				'fade-out-fast': 'fade-out 0.5s ease-out forwards',
+				'grow': 'grow 0.5s ease-out forwards',
+				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 20s linear infinite'
 			},
 			backgroundImage: {
 				'love-gradient': 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)',
 				'pink-gradient': 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)',
-				'soft-pink': 'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)'
-			}
+				'soft-pink': 'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)',
+				'pink-blue': 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 50%, #d4e4fd 100%)',
+				'pink-love': 'linear-gradient(90deg, hsla(341, 91%, 86%, 1) 0%, hsla(338, 100%, 76%, 1) 100%)',
+				'purple-pink': 'linear-gradient(90deg, hsla(277, 75%, 84%, 1) 0%, hsla(297, 50%, 71%, 1) 100%)',
+				'sunset': 'linear-gradient(to top, #ff758c 0%, #ff7eb3 100%)'
+			},
+			textShadow: {
+				sm: '0 1px 2px rgba(0, 0, 0, 0.1)',
+				DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.1)',
+				lg: '0 8px 16px rgba(0, 0, 0, 0.1)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
