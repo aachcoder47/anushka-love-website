@@ -67,7 +67,8 @@ const FallingHearts = ({ density = 15 }: HeartProps) => {
   
   return (
     <div ref={containerRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      <style jsx>{`
+      <style>
+        {`
         .falling-heart {
           position: absolute;
           top: -50px;
@@ -103,7 +104,8 @@ const FallingHearts = ({ density = 15 }: HeartProps) => {
             opacity: 0;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };
