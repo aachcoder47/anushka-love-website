@@ -1,28 +1,38 @@
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, SkipForward, SkipBack, Music } from 'lucide-react';
+import { Play, Pause, SkipForward, SkipBack, Music, Volume2 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Slider } from "@/components/ui/slider";
 
-// Mock music playlist - in a real app, you would use actual audio files
 const playlist = [
+  { 
+    title: "Our Special Song",
+    artist: "Suno AI",
+    duration: "3:14",
+    color: "#FF6B8B",
+    url: "https://suno.com/song/05131f65-5ee9-49d9-8de2-05209df51b24?sh=uGFEg31L9Ee4953e"
+  },
   { 
     title: "Perfect", 
     artist: "Ed Sheeran",
     duration: "4:23",
-    color: "#FFB1C8"
+    color: "#FFB1C8",
+    url: ""
   },
   { 
     title: "Can't Help Falling in Love", 
     artist: "Elvis Presley",
     duration: "3:02",
-    color: "#FFC3D8" 
+    color: "#FFC3D8",
+    url: "" 
   },
   { 
     title: "All of Me", 
     artist: "John Legend",
     duration: "4:29",
-    color: "#FFD4DC"
+    color: "#FFD4DC",
+    url: ""
   }
 ];
 
@@ -30,56 +40,107 @@ const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(80);
   const progressInterval = useRef<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Toggle play/pause
+  useEffect(() => {
+    audioRef.current = new Audio();
+    audioRef.current.volume = volume / 100;
+    
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+    
+    const currentSong = playlist[currentTrack];
+    if (currentSong.url) {
+      audioRef.current.src = currentSong.url;
+      if (isPlaying) {
+        audioRef.current.play().catch(err => console.log("Play error:", err));
+      }
+    } else {
+      audioRef.current.pause();
+    }
+  }, [currentTrack]);
+
   const togglePlayPause = () => {
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      const currentSong = playlist[currentTrack];
+      if (currentSong.url) {
+        audioRef.current.play().catch(err => console.log("Play error:", err));
+      }
+    }
     setIsPlaying(!isPlaying);
   };
 
-  // Next track
   const nextTrack = () => {
     setCurrentTrack((prev) => (prev + 1) % playlist.length);
     setProgress(0);
     
-    // Keep playing if it was already playing
     if (!isPlaying) {
       setIsPlaying(true);
     }
   };
 
-  // Previous track
   const prevTrack = () => {
     setCurrentTrack((prev) => (prev - 1 + playlist.length) % playlist.length);
     setProgress(0);
     
-    // Keep playing if it was already playing
     if (!isPlaying) {
       setIsPlaying(true);
     }
   };
 
-  // Simulate progress
+  const handleVolumeChange = (value: number[]) => {
+    const newVolume = value[0];
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
+    }
+  };
+
   useEffect(() => {
+    const currentSong = playlist[currentTrack];
+    
     if (isPlaying) {
-      // Clear any existing interval
       if (progressInterval.current) {
         window.clearInterval(progressInterval.current);
       }
       
-      // Create new progress simulation
-      progressInterval.current = window.setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 100) {
-            // Move to next track when current one completes
-            nextTrack();
-            return 0;
+      if (currentSong.url && audioRef.current) {
+        progressInterval.current = window.setInterval(() => {
+          if (audioRef.current) {
+            const percent = (audioRef.current.currentTime / audioRef.current.duration) * 100 || 0;
+            setProgress(percent);
+            
+            if (audioRef.current.ended) {
+              nextTrack();
+            }
           }
-          return prev + 0.5;
-        });
-      }, 100);
+        }, 100);
+      } else {
+        progressInterval.current = window.setInterval(() => {
+          setProgress((prev) => {
+            if (prev >= 100) {
+              nextTrack();
+              return 0;
+            }
+            return prev + 0.5;
+          });
+        }, 100);
+      }
     } else if (progressInterval.current) {
-      // Pause the progress
       window.clearInterval(progressInterval.current);
       progressInterval.current = null;
     }
@@ -92,14 +153,13 @@ const MusicPlayer = () => {
   }, [isPlaying, currentTrack]);
 
   return (
-    <Card className="w-56 backdrop-blur-sm bg-white/70 shadow-lg overflow-hidden">
+    <Card className="w-64 backdrop-blur-sm bg-white/70 shadow-lg overflow-hidden">
       <CardContent className="p-4">
         <div className="flex items-center gap-2 mb-2">
           <Music size={18} className="text-love" />
           <h3 className="text-sm font-semibold">Our Love Songs</h3>
         </div>
         
-        {/* Album art */}
         <div 
           className="w-full h-28 rounded-md mb-3 flex items-center justify-center transition-all duration-300"
           style={{ 
@@ -120,13 +180,11 @@ const MusicPlayer = () => {
           </svg>
         </div>
         
-        {/* Track info */}
         <div className="text-center mb-2">
           <h4 className="font-medium text-sm">{playlist[currentTrack].title}</h4>
           <p className="text-xs text-gray-600">{playlist[currentTrack].artist}</p>
         </div>
         
-        {/* Progress bar */}
         <div className="w-full h-1 bg-gray-200 rounded-full mb-3">
           <div 
             className="h-full bg-love rounded-full"
@@ -134,7 +192,17 @@ const MusicPlayer = () => {
           ></div>
         </div>
         
-        {/* Controls */}
+        <div className="flex items-center gap-2 mb-3">
+          <Volume2 size={14} className="text-gray-500" />
+          <Slider
+            defaultValue={[volume]}
+            max={100}
+            step={1}
+            className="w-full"
+            onValueChange={handleVolumeChange}
+          />
+        </div>
+        
         <div className="flex justify-between items-center">
           <Button 
             variant="ghost" 
