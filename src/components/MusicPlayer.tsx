@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Music, Volume2 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,11 +8,11 @@ import { Slider } from "@/components/ui/slider";
 
 const playlist = [
   { 
-    title: "Our Special Song",
-    artist: "Suno AI",
-    duration: "3:14",
+    title: "Demon Slayer",
+    artist: "Lisa",
+    duration: "3:45",
     color: "#FF6B8B",
-    url: "https://suno.com/song/05131f65-5ee9-49d9-8de2-05209df51b24?sh=uGFEg31L9Ee4953e"
+    url: "https://vzrudezrrthtkmevnwzc.supabase.co/storage/v1/object/public/music//Demon%20Slayer%20OpM5.wav"
   },
   { 
     title: "Perfect", 
