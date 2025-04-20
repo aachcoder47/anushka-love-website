@@ -6,6 +6,7 @@ import { ArrowLeft, Heart } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import MemoryGallery from "@/components/MemoryGallery";
 import HeartBackground from "@/components/HeartBackground";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const Memories = () => {
   const navigate = useNavigate();
@@ -42,6 +43,9 @@ const Memories = () => {
             <ArrowLeft size={20} />
           </Button>
         </div>
+        <div className={`fixed top-4 right-4 z-50 transition-all duration-500`}>
+        <MusicPlayer />
+      </div>
         
         <div className="text-center mb-12 relative">
           <h1 className="text-5xl md:text-6xl font-bold text-love-dark mb-4 animate-float">Our Beautiful Journey</h1>

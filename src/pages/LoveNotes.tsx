@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import HeartBackground from "@/components/HeartBackground";
 import FallingHearts from "@/components/FallingHearts";
 import LoveQuotes from "@/components/LoveQuotes";
+import MusicPlayer from "@/components/MusicPlayer"
 
 const loveNotes = [
   {
@@ -79,7 +80,9 @@ const LoveNotes = () => {
             <ArrowLeft size={20} />
           </Button>
         </div>
-        
+        <div className={'fixed top-4 right-4 z-50 transition-all duration-500'}>
+        <MusicPlayer />
+      </div>
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-shadow-sm animate-float">Love Notes for You</h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">These little notes carry big feelings - all the ways you make my heart flutter.</p>
