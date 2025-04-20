@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Birthday from "./pages/Birthday";
 import Memories from "./pages/Memories";
 import LoveNotes from "./pages/LoveNotes";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/birthday" element={<Birthday />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/love-notes" element={<LoveNotes />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
