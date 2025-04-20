@@ -37,7 +37,7 @@ const Memories = () => {
             variant="ghost" 
             size="icon" 
             className="bg-white/50 backdrop-blur-sm hover:bg-white/70 text-love-dark transition-all duration-300"
-            onClick={() => navigate("/birthday")}
+            onClick={() => navigate("/anniversary")}
           >
             <ArrowLeft size={20} />
           </Button>
@@ -63,10 +63,10 @@ const Memories = () => {
           </p>
           <Button 
             className="bg-love hover:bg-love-dark text-white transition-all duration-300 hover:scale-105"
-            onClick={() => navigate("/birthday")}
+            onClick={() => navigate("/anniversary")}
           >
             <Heart className="mr-2" size={16} />
-            Back to Birthday
+            Back to Anniversary
           </Button>
         </div>
       </div>

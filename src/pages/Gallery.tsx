@@ -39,7 +39,7 @@ const Gallery = () => {
           variant="ghost" 
           size="icon" 
           className="bg-white/50 backdrop-blur-sm hover:bg-white/70 text-love-dark transition-all duration-300"
-          onClick={() => navigate("/birthday")}
+          onClick={() => navigate("/anniversary")}
         >
           <ArrowLeft size={20} />
         </Button>
