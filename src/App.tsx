@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Birthday from "./pages/Birthday";
+import Anniversary from "./pages/Anniversary";
 import Memories from "./pages/Memories";
 import LoveNotes from "./pages/LoveNotes";
 import Gallery from "./pages/Gallery";
@@ -21,7 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/birthday" element={<Birthday />} />
+          <Route path="/anniversary" element={<Anniversary />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/love-notes" element={<LoveNotes />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -33,3 +33,4 @@ const App = () => (
 );
 
 export default App;
+
