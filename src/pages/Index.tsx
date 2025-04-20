@@ -27,7 +27,7 @@ const Index = () => {
       duration: 2000,
     });
     setTimeout(() => {
-      navigate("/birthday");
+      navigate("/anniversary");
     }, 2000);
   };
 
