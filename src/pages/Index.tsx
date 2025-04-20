@@ -47,8 +47,13 @@ const Index = () => {
       <div className={`fixed top-4 right-4 z-50 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
         <MusicPlayer />
       </div>
-      
-      <div className={`transition-all duration-1000 ease-in-out transform ${hasClicked ? 'scale-0 opacity-0' : 'scale-100 opacity-100'} z-10`}>
+      <div className="flex items-center gap-3 justify-center top-3">
+              <Heart className="text-love animate-heartbeat" size={32} />
+              <h1 className="text-9xl mb-2 bottom-0 text-love font-bold font-dancing animate-float">Happy Anniversary!</h1>
+              <Heart className="text-love animate-heartbeat" size={32} />
+            </div>
+      <div className={`transition-all duration-1000 ease-in-out transform bottom-100
+        ${hasClicked ? 'scale-0 opacity-0' : 'scale-100 opacity-100'} z-10`}>
         <Card className="bg-white/90 p-8 rounded-2xl shadow-2xl backdrop-blur-md max-w-md mx-auto border-love/20 hover:shadow-love/20 transition-all duration-500">
           <CardContent className="space-y-8">
             <div className="flex items-center gap-3 justify-center">
@@ -90,15 +95,9 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-          
-          <div className="absolute right-10 top-20 animate-fade-in opacity-0" style={{animationDelay: "1.2s", animationFillMode: "forwards"}}>
-            <Card className="w-64 backdrop-blur-md bg-white/80 shadow-xl border-love/10 overflow-hidden">
-              <CardContent className="p-2">
-                <MemoryGallery smallPreview={true} />
-              </CardContent>
-            </Card>
+          <div className="absolute right-5 top-1/4 animate-fade-in opacity-0" style={{animationDelay: "0.5s", animationFillMode: "forwards"}}>
+            <LoveTree className="w-72 h-72" />
           </div>
-          
           <div className="absolute top-5 left-1/2 transform -translate-x-1/2 animate-fade-in opacity-0" style={{animationDelay: "0.3s", animationFillMode: "forwards"}}>
             <div className="flex gap-4 items-center">
               <Gift className="text-love animate-bounce-subtle" size={24} />
