@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,8 +6,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import HeartBackground from "@/components/HeartBackground";
 import FallingHearts from "@/components/FallingHearts";
-import LoveQuotes from "@/components/LoveQuotes";
 import MusicPlayer from "@/components/MusicPlayer";
+import LoveQuotes from "@/components/LoveQuotes";
 
 const loveNotes = [
   {
@@ -44,23 +43,19 @@ const LoveNotes = () => {
   const [visibleNotes, setVisibleNotes] = useState<number[]>([]);
   
   useEffect(() => {
-    // Show welcome toast
     toast({
       title: "My Love Notes to You ❤️",
       description: "Words from my heart to yours",
       duration: 4000,
     });
     
-    // Animate in the notes one by one
     const timers = loveNotes.map((_, index) => {
       return setTimeout(() => {
         setVisibleNotes(prev => [...prev, index]);
-      }, 600 * index + 500);
+      }, 300 * index);
     });
     
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    return () => timers.forEach(timer => clearTimeout(timer));
   }, [toast]);
   
   return (
@@ -84,56 +79,48 @@ const LoveNotes = () => {
           <MusicPlayer />
         </div>
         
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-5xl md:text-6xl font-bold text-love mb-4 font-dancing animate-float">Love Notes for You</h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto font-dancing">These little notes carry big feelings - all the ways you make my heart flutter.</p>
         </div>
         
-        <div className="space-y-6">
-          {loveNotes.map((note, index) => (
-            <div 
-              key={index}
-              className={`transition-all duration-1000 transform ${
-                visibleNotes.includes(index) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
-              }`}
-            >
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white/90 backdrop-blur-sm">
-                <div style={{ backgroundColor: note.color }} className="h-2"></div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Heart className="text-love" size={18} fill={note.color} />
-                    <h3 className="text-xl font-semibold text-love-dark font-dancing">{note.title}</h3>
+        <Card className="bg-white/90 backdrop-blur-md shadow-xl border-love/20 overflow-hidden">
+          <CardContent className="p-8">
+            <div className="grid gap-6">
+              {loveNotes.map((note, index) => (
+                <div 
+                  key={index}
+                  className={`transition-all duration-700 transform ${
+                    visibleNotes.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}
+                >
+                  <div className="relative">
+                    <div className="absolute -left-2 top-0 h-full w-1" style={{ backgroundColor: note.color }} />
+                    <div className="pl-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Heart className="text-love" size={18} fill={note.color} />
+                        <h3 className="text-xl font-semibold text-love-dark font-dancing">{note.title}</h3>
+                      </div>
+                      <p className="text-gray-700 italic font-dancing text-lg">{note.content}</p>
+                    </div>
                   </div>
-                  <p className="text-gray-700 italic font-dancing">{note.content}</p>
-                </CardContent>
-              </Card>
+                  {index < loveNotes.length - 1 && (
+                    <div className="border-b border-love/10 mt-4" />
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        
-        <div className="mt-12 flex flex-col md:flex-row gap-6 items-center justify-center">
-          <div className="w-full md:w-1/2">
-            <Card className="bg-white/90 backdrop-blur-sm overflow-hidden hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6">
-                <LoveQuotes />
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="w-full md:w-1/2 text-center">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-              <Gift className="mx-auto text-love mb-4" size={30} />
-              <h3 className="text-xl font-semibold mb-2 text-love-dark font-dancing">My Gift To You</h3>
-              <p className="text-gray-700 mb-4 font-dancing">All my love, wrapped in these words and memories. Happy Anniversary, my love!</p>
-              <Button 
-                className="bg-love hover:bg-love-dark text-white transition-all duration-300 hover:scale-105"
-                onClick={() => navigate("/anniversary")}
-              >
-                <Star className="mr-2" size={16} />
-                Back to Anniversary
-              </Button>
-            </div>
-          </div>
+          </CardContent>
+        </Card>
+
+        <div className="mt-8 flex justify-center">
+          <Button 
+            className="bg-love hover:bg-love-dark text-white transition-all duration-300 hover:scale-105"
+            onClick={() => navigate("/anniversary")}
+          >
+            <Heart className="mr-2" size={16} />
+            Back to Anniversary
+          </Button>
         </div>
       </div>
     </div>
