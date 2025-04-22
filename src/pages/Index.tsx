@@ -96,15 +96,16 @@ const Index = () => {
             <LoveTree className="w-72 h-72" />
           </div>
           
-          <div className="absolute right-5 bottom-10 z-0 animate-fade-in opacity-0" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
+         
+          <div className="absolute right-5 z-1 top-1/4 animate-fade-in opacity-0" style={{animationDelay: "0.5s", animationFillMode: "forwards"}}>
+            <LoveTree className="w-72 h-72" />
+          </div>
+           <div className="absolute right-5 bottom-10 z-0 animate-fade-in opacity-0" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
             <Card className="w-64 backdrop-blur-md bg-white/80 shadow-xl border-love/10">
               <CardContent className="pt-6">
                 <LoveQuotes />
               </CardContent>
             </Card>
-          </div>
-          <div className="absolute right-5 z-1 top-1/4 animate-fade-in opacity-0" style={{animationDelay: "0.5s", animationFillMode: "forwards"}}>
-            <LoveTree className="w-72 h-72" />
           </div>
           <div className="absolute top-5 left-1/2 transform -translate-x-1/2 animate-fade-in opacity-0" style={{animationDelay: "0.3s", animationFillMode: "forwards"}}>
             <div className="flex gap-4 items-center">
