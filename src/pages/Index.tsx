@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Gift, Star, Camera, SparkleIcon } from "lucide-react";
+import { Heart, Gift, Star, Camera } from "lucide-react";
 import DodgingButton from "@/components/DodgingButton";
 import HeartBackground from "@/components/HeartBackground";
 import LoveTree from "@/components/LoveTree";
@@ -53,11 +53,21 @@ const Index = () => {
       <div className={`fixed top-4 right-4 z-50 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
         <MusicPlayer />
       </div>
+
+      <div className={`absolute top-4 left-4 z-50 w-64 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+        <Card className="bg-white/90 backdrop-blur-md shadow-xl border-love/10">
+          <CardContent className="pt-6">
+            <LoveQuotes />
+          </CardContent>
+        </Card>
+      </div>
+
       <div className="flex items-center gap-3 justify-center top-3">
-              <Heart className="text-love animate-heartbeat" size={32} />
-              <h1 className="text-9xl mb-2 bottom-0 text-love font-bold font-dancing animate-float">Happy Anniversary!</h1>
-              <Heart className="text-love animate-heartbeat" size={32} />
-            </div>
+        <Heart className="text-love animate-heartbeat" size={32} />
+        <h1 className="text-9xl mb-2 bottom-0 text-love font-bold font-dancing animate-float">Happy Anniversary!</h1>
+        <Heart className="text-love animate-heartbeat" size={32} />
+      </div>
+      
       <div className={`transition-all duration-1000 ease-in-out transform bottom-100
         ${hasClicked ? 'scale-0 opacity-0' : 'scale-100 opacity-100'} z-10`}>
         <Card className="bg-white/90 p-8 rounded-2xl shadow-2xl backdrop-blur-md max-w-md mx-auto border-love/20 hover:shadow-love/20 transition-all duration-500">
