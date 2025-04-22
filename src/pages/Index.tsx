@@ -54,7 +54,7 @@ const Index = () => {
         <MusicPlayer />
       </div>
 
-      <div className={`absolute top-4 left-4 z-50 w-64 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+      <div className={`absolute top-4 left-4 z-0 w-64 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
         <Card className="bg-white/90 backdrop-blur-md shadow-xl border-love/10">
           <CardContent className="pt-6">
             <LoveQuotes />
