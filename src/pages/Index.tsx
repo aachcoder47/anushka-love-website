@@ -54,8 +54,8 @@ const Index = () => {
         <MusicPlayer />
       </div>
 
-      {/* Love Quotes Card */}
-      <div className="fixed top-4 left-4 z-50 w-64 transition-all duration-500 animate-fade-in">
+      {/* Love Quotes Card - Now positioned bottom right */}
+      <div className="fixed bottom-4 right-4 z-50 w-64 transition-all duration-500 animate-fade-in">
         <Card className="bg-white/80 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 border-love/20">
           <CardContent className="p-4">
             <LoveQuotes />
@@ -63,7 +63,7 @@ const Index = () => {
         </Card>
       </div>
 
-      <div className="flex flex-col items-center gap-6 justify-center relative z-10">
+      <div className="flex flex-col items-center gap-6 justify-center relative z-10 mt-[-100px]">
         <div className="flex items-center gap-3 justify-center">
           <Heart className="text-love animate-heartbeat" size={32} />
           <h1 className="text-8xl md:text-9xl mb-2 text-love font-bold font-dancing animate-float bg-gradient-to-r from-love to-love-dark bg-clip-text text-transparent">
