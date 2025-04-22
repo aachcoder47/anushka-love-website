@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import HeartBackground from "@/components/HeartBackground";
 import FallingHearts from "@/components/FallingHearts";
 import LoveQuotes from "@/components/LoveQuotes";
-import MusicPlayer from "@/components/MusicPlayer"
+import MusicPlayer from "@/components/MusicPlayer";
 
 const loveNotes = [
   {
@@ -64,12 +64,11 @@ const LoveNotes = () => {
   }, [toast]);
   
   return (
-    <div className="min-h-screen bg-love-gradient py-12 px-4 sm:px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-100 to-pink-50 py-12 px-4 sm:px-6 relative overflow-hidden">
       <HeartBackground />
       <FallingHearts density={5} />
       
-      <div className="max-w-4xl mx-auto">
-        {/* Navigation Back */}
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="absolute top-4 left-4 z-20">
           <Button 
             variant="ghost" 
@@ -80,12 +79,14 @@ const LoveNotes = () => {
             <ArrowLeft size={20} />
           </Button>
         </div>
-        <div className={'fixed top-4 right-4 z-50 transition-all duration-500'}>
-        <MusicPlayer />
-      </div>
+        
+        <div className="fixed top-4 right-4 z-50">
+          <MusicPlayer />
+        </div>
+        
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-shadow-sm animate-float">Love Notes for You</h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">These little notes carry big feelings - all the ways you make my heart flutter.</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-love mb-4 font-dancing animate-float">Love Notes for You</h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-dancing">These little notes carry big feelings - all the ways you make my heart flutter.</p>
         </div>
         
         <div className="space-y-6">
@@ -96,14 +97,14 @@ const LoveNotes = () => {
                 visibleNotes.includes(index) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
               }`}
             >
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white/90 backdrop-blur-sm">
                 <div style={{ backgroundColor: note.color }} className="h-2"></div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Heart className="text-love" size={18} fill={note.color} />
-                    <h3 className="text-xl font-semibold text-love-dark">{note.title}</h3>
+                    <h3 className="text-xl font-semibold text-love-dark font-dancing">{note.title}</h3>
                   </div>
-                  <p className="text-gray-700 italic">"{note.content}"</p>
+                  <p className="text-gray-700 italic font-dancing">{note.content}</p>
                 </CardContent>
               </Card>
             </div>
@@ -120,10 +121,10 @@ const LoveNotes = () => {
           </div>
           
           <div className="w-full md:w-1/2 text-center">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
               <Gift className="mx-auto text-love mb-4" size={30} />
-              <h3 className="text-xl font-semibold mb-2 text-love-dark">My Gift To You</h3>
-              <p className="text-gray-700 mb-4">All my love, wrapped in these words and memories. Happy Anniversary, my love!</p>
+              <h3 className="text-xl font-semibold mb-2 text-love-dark font-dancing">My Gift To You</h3>
+              <p className="text-gray-700 mb-4 font-dancing">All my love, wrapped in these words and memories. Happy Anniversary, my love!</p>
               <Button 
                 className="bg-love hover:bg-love-dark text-white transition-all duration-300 hover:scale-105"
                 onClick={() => navigate("/anniversary")}
