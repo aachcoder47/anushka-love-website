@@ -54,14 +54,6 @@ const Index = () => {
         <MusicPlayer />
       </div>
 
-      <div className={`absolute top-4 left-4 z-0 w-64 transition-all duration-500 ${showLoveElements ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-        <Card className="bg-white/90 backdrop-blur-md shadow-xl border-love/10">
-          <CardContent className="pt-6">
-            <LoveQuotes />
-          </CardContent>
-        </Card>
-      </div>
-
       <div className="flex items-center gap-3 justify-center top-3">
         <Heart className="text-love animate-heartbeat" size={32} />
         <h1 className="text-9xl mb-2 bottom-0 text-love font-bold font-dancing animate-float">Happy Anniversary!</h1>
@@ -104,7 +96,7 @@ const Index = () => {
             <LoveTree className="w-72 h-72" />
           </div>
           
-          <div className="absolute right-5 bottom-10 animate-fade-in opacity-0" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
+          <div className="absolute right-5 bottom-10 z-0 animate-fade-in opacity-0" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
             <Card className="w-64 backdrop-blur-md bg-white/80 shadow-xl border-love/10">
               <CardContent className="pt-6">
                 <LoveQuotes />
