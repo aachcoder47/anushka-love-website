@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -12,12 +11,14 @@ import FallingHearts from "@/components/FallingHearts";
 import LoveQuotes from "@/components/LoveQuotes";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import PageTransition from "@/components/PageTransition";
 
 const Index = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [hasClicked, setHasClicked] = useState(false);
   const [showLoveElements, setShowLoveElements] = useState(false);
+  const [showTransition, setShowTransition] = useState(false);
   
   const handleYesClick = () => {
     setHasClicked(true);
@@ -26,9 +27,7 @@ const Index = () => {
       description: "Let me show you something special...",
       duration: 2000,
     });
-    setTimeout(() => {
-      navigate("/anniversary");
-    }, 2000);
+    setShowTransition(true);
   };
 
   useEffect(() => {
@@ -41,6 +40,13 @@ const Index = () => {
   
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-pink-50 relative overflow-hidden">
+      {showTransition && (
+        <PageTransition 
+          to="/anniversary"
+          message="Every moment with you is a blessing. Let me show you how much you mean to me..."
+        />
+      )}
+      
       <HeartBackground />
       <FallingHearts />
       

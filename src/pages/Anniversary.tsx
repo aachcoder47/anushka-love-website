@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
@@ -9,6 +8,7 @@ import HeartBackground from "@/components/HeartBackground";
 import MusicPlayer from "@/components/MusicPlayer";
 import FallingHearts from "@/components/FallingHearts";
 import LoveQuotes from "@/components/LoveQuotes";
+import PageTransition from "@/components/PageTransition";
 
 const Anniversary = () => {
   const navigate = useNavigate();
@@ -24,7 +24,14 @@ const Anniversary = () => {
     music: false,
     navigation: false
   });
-  
+  const [showTransition, setShowTransition] = useState(false);
+  const [transitionConfig, setTransitionConfig] = useState({ to: '', message: '' });
+
+  const handleNavigation = (to: string, message: string) => {
+    setTransitionConfig({ to, message });
+    setShowTransition(true);
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setShowConfetti(true);
@@ -53,6 +60,13 @@ const Anniversary = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-100 to-pink-50 py-12 px-4 sm:px-6 relative overflow-hidden">
+      {showTransition && (
+        <PageTransition 
+          to={transitionConfig.to}
+          message={transitionConfig.message}
+        />
+      )}
+      
       {showConfetti && <Confetti />}
       <HeartBackground />
       <FallingHearts density={15} />
@@ -103,7 +117,7 @@ const Anniversary = () => {
             <h2 className="text-4xl font-bold text-love-dark font-dancing">Our Love Story</h2>
             <Button 
               className="bg-love hover:bg-love-dark group"
-              onClick={() => navigate("/memories")}
+              onClick={() => handleNavigation("/memories", "Let's revisit our beautiful journey together...")}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -132,7 +146,7 @@ const Anniversary = () => {
           <div className="mt-8 text-center">
             <Button 
               className="bg-love hover:bg-love-dark text-white font-bold px-8 py-4 text-lg animate-heartbeat hover:shadow-lg transition-transform duration-300 hover:scale-105"
-              onClick={() => navigate("/love-notes")}
+              onClick={() => handleNavigation("/love-notes", "Words can't express how much you mean to me...")}
             >
               <Heart className="mr-2" fill="white" />
               <span>Read My Love Notes</span>
