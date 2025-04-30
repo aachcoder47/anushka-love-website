@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -127,8 +128,20 @@ export default {
 					'100%': { transform: 'scale(1)' }
 				},
 				'bounce-subtle': {
-					'0%, 100%': { transform: 'translateY(0)' },
+					'0%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 5px rgba(255, 107, 139, 0.4)' },
+					'50%': { boxShadow: '0 0 15px rgba(255, 107, 139, 0.8), 0 0 20px rgba(255, 107, 139, 0.4)' }
 				}
 			},
 			animation: {
@@ -143,13 +156,32 @@ export default {
 				'fade-in-fast': 'fade-in 0.5s ease-out forwards',
 				'fade-out-fast': 'fade-out 0.5s ease-out forwards',
 				'grow': 'grow 0.5s ease-out forwards',
-				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite'
+				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 20s linear infinite',
+				'shimmer': 'shimmer 3s linear infinite',
+				'pulse-glow': 'pulse-glow 2s infinite'
 			},
 			backgroundImage: {
 				'love-gradient': 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)',
 				'pink-gradient': 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)',
 				'soft-pink': 'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)',
-				'pink-blue': 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 50%, #d4e4fd 100%)'
+				'pink-blue': 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 50%, #d4e4fd 100%)',
+				'pink-love': 'linear-gradient(90deg, hsla(341, 91%, 86%, 1) 0%, hsla(338, 100%, 76%, 1) 100%)',
+				'purple-pink': 'linear-gradient(90deg, hsla(277, 75%, 84%, 1) 0%, hsla(297, 50%, 71%, 1) 100%)',
+				'sunset': 'linear-gradient(to top, #ff758c 0%, #ff7eb3 100%)',
+				'shimmer': 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%)',
+				'pastel-gradient': 'linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e)',
+				'warm-flame': 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%)',
+				'juicy-peach': 'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)',
+				'lady-lips': 'linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)'
+			},
+			textShadow: {
+				sm: '0 1px 2px rgba(0, 0, 0, 0.1)',
+				DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.1)',
+				lg: '0 8px 16px rgba(0, 0, 0, 0.1)',
+			},
+			boxShadow: {
+				'love': '0 4px 14px 0 rgba(255, 107, 139, 0.39)'
 			}
 		}
 	},
