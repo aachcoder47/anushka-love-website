@@ -133,6 +133,14 @@ export default {
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
+				},
+				'fly-away': {
+					'0%': { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: '1' },
+					'100%': { transform: 'translate(calc(100px - 200px * Math.random()), -150px) scale(0) rotate(360deg)', opacity: '0' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 5px rgba(255, 107, 139, 0.4)' },
+					'50%': { boxShadow: '0 0 15px rgba(255, 107, 139, 0.8), 0 0 20px rgba(255, 107, 139, 0.4)' }
 				}
 			},
 			animation: {
@@ -140,7 +148,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
-				'fly-away': 'flyAway 1s forwards',
+				'fly-away': 'fly-away 1s forwards',
+				'pulse-glow': 'pulse-glow 2s infinite',
 				'fade-in': 'fadeIn 1s forwards',
 				'slide-in': 'slideIn 0.8s forwards',
 				'confetti': 'confetti 4s linear forwards',
@@ -164,6 +173,9 @@ export default {
 				DEFAULT: '0 2px 4px rgba(0, 0, 0, 0.1)',
 				lg: '0 8px 16px rgba(0, 0, 0, 0.1)',
 			},
+			boxShadow: {
+				'love': '0 4px 14px 0 rgba(255, 107, 139, 0.39)'
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
