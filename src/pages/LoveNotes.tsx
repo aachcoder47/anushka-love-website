@@ -95,68 +95,68 @@ const LoveNotes = () => {
   
   return (
     <div 
-      className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-100 to-pink-50 py-12 px-4 sm:px-6 relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-100 to-pink-50 py-6 sm:py-12 px-3 sm:px-6 relative overflow-hidden"
       onMouseMove={createFloatingHeart}
     >
       <HeartBackground />
       <FallingHearts density={5} />
       
       {/* Decorative elements */}
-      <div className="absolute -left-20 top-1/4 opacity-20 animate-rotate-slow">
-        <div className="w-40 h-40 rounded-full bg-gradient-to-r from-love to-love-dark blur-xl"></div>
+      <div className="absolute -left-10 sm:-left-20 top-1/4 opacity-20 animate-rotate-slow">
+        <div className="w-20 h-20 sm:w-40 sm:h-40 rounded-full bg-gradient-to-r from-love to-love-dark blur-xl"></div>
       </div>
-      <div className="absolute -right-20 bottom-1/4 opacity-20 animate-rotate-slow" style={{ animationDirection: 'reverse' }}>
-        <div className="w-40 h-40 rounded-full bg-gradient-to-r from-love-light to-love blur-xl"></div>
+      <div className="absolute -right-10 sm:-right-20 bottom-1/4 opacity-20 animate-rotate-slow" style={{ animationDirection: 'reverse' }}>
+        <div className="w-20 h-20 sm:w-40 sm:h-40 rounded-full bg-gradient-to-r from-love-light to-love blur-xl"></div>
       </div>
       
-      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-love/10 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-love/10 to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-32 sm:h-64 bg-gradient-to-b from-love/10 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 sm:h-64 bg-gradient-to-t from-love/10 to-transparent pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="absolute top-4 left-4 z-20">
+        <div className="absolute top-2 sm:top-4 left-2 sm:left-4 z-20">
           <Button 
             variant="ghost" 
             size="icon" 
             className="bg-white/50 backdrop-blur-sm hover:bg-white/70 text-love-dark transition-all duration-300 shadow-md"
             onClick={() => navigate("/anniversary")}
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={18} className="w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
         </div>
         
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
           <MusicPlayer />
         </div>
         
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="inline-block relative">
-            <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-gradient-to-r from-love via-love-dark to-love bg-clip-text mb-4 font-dancing animate-float relative z-10">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-transparent bg-gradient-to-r from-love via-love-dark to-love bg-clip-text mb-2 sm:mb-4 font-dancing animate-float relative z-10">
               Love Notes for You
             </h1>
-            <div className="absolute -z-0 w-full h-8 bg-love-light/50 -bottom-2 left-0 transform -rotate-1"></div>
+            <div className="absolute -z-0 w-full h-4 sm:h-8 bg-love-light/50 -bottom-1 sm:-bottom-2 left-0 transform -rotate-1"></div>
           </div>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-dancing mt-4">
+          <p className="text-base sm:text-xl text-gray-700 max-w-2xl mx-auto font-dancing mt-2 sm:mt-4 px-4">
             These little notes carry big feelings - all the ways you make my heart flutter.
           </p>
           
-          <div className="mt-4">
+          <div className="mt-3 sm:mt-4">
             <Button 
               variant="ghost" 
-              className="text-love hover:text-love-dark hover:bg-love-light/30 transition-all duration-300"
+              className="text-love hover:text-love-dark hover:bg-love-light/30 transition-all duration-300 text-sm sm:text-base"
               onClick={() => setShowFloatingHearts(prev => !prev)}
             >
-              <Heart className={`mr-2 ${showFloatingHearts ? 'fill-love' : ''}`} size={16} />
+              <Heart className={`mr-2 w-4 h-4 sm:w-5 sm:h-5 ${showFloatingHearts ? 'fill-love' : ''}`} size={16} />
               {showFloatingHearts ? 'Hearts Activated!' : 'Click For Hearts'}
             </Button>
           </div>
         </div>
         
         <Card className="bg-white/90 backdrop-blur-md shadow-xl border-love/20 overflow-hidden animate-pulse-glow">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-love-light to-love/20 rounded-bl-full opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-love-light to-love/20 rounded-tr-full opacity-50"></div>
+          <div className="absolute top-0 right-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-br from-love-light to-love/20 rounded-bl-full opacity-50"></div>
+          <div className="absolute bottom-0 left-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-tr from-love-light to-love/20 rounded-tr-full opacity-50"></div>
           
-          <CardContent className="p-8 relative z-10">
-            <div className="space-y-8">
+          <CardContent className="p-4 sm:p-8 relative z-10">
+            <div className="space-y-6 sm:space-y-8">
               {loveNotes.map((note, index) => {
                 const IconComponent = note.icon;
                 
@@ -169,10 +169,10 @@ const LoveNotes = () => {
                     onMouseEnter={() => setHoveredNote(index)}
                     onMouseLeave={() => setHoveredNote(null)}
                   >
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       {note.showIcon && (
                         <div 
-                          className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${
+                          className={`flex items-center justify-center p-1.5 sm:p-2 rounded-full transition-all duration-300 ${
                             hoveredNote === index ? 'animate-heartbeat' : ''
                           }`} 
                           style={{ 
@@ -182,7 +182,7 @@ const LoveNotes = () => {
                           }}
                         >
                           <IconComponent 
-                            className="transition-all duration-300" 
+                            className="transition-all duration-300 w-4 h-4 sm:w-5 sm:h-5" 
                             size={18} 
                             fill={hoveredNote === index ? "white" : note.color}
                             stroke={hoveredNote === index ? "white" : note.color}
@@ -190,15 +190,15 @@ const LoveNotes = () => {
                         </div>
                       )}
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-love-dark font-dancing mb-2">{note.title}</h3>
-                        <p className="text-gray-700 italic font-dancing text-lg leading-relaxed">{note.content}</p>
+                        <h3 className="text-lg sm:text-xl font-semibold text-love-dark font-dancing mb-1 sm:mb-2">{note.title}</h3>
+                        <p className="text-sm sm:text-lg text-gray-700 italic font-dancing leading-relaxed">{note.content}</p>
                       </div>
                     </div>
                     
                     {hoveredNote === index && (
                       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 rotate-12 transition-all duration-500 ease-in-out opacity-70">
                         <div className="relative">
-                          <IconComponent size={32} fill={note.color} />
+                          <IconComponent size={24} className="w-6 h-6 sm:w-8 sm:h-8" fill={note.color} />
                           <div className="absolute inset-0 animate-pulse-glow" style={{ boxShadow: `0 0 15px ${note.color}` }}></div>
                         </div>
                       </div>
@@ -210,17 +210,17 @@ const LoveNotes = () => {
           </CardContent>
         </Card>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 sm:mt-8 flex justify-center">
           <Button 
-            className="bg-gradient-to-r from-love to-love-dark hover:opacity-90 text-white transition-all duration-300 hover:scale-105 px-6 py-2 h-auto shadow-lg"
+            className="bg-gradient-to-r from-love to-love-dark hover:opacity-90 text-white transition-all duration-300 hover:scale-105 px-4 sm:px-6 py-2 h-auto shadow-lg w-full sm:w-auto"
             onClick={() => navigate("/anniversary")}
           >
-            <Heart className="mr-2" size={16} fill="white" />
+            <Heart className="mr-2 w-4 h-4 sm:w-5 sm:h-5" size={16} fill="white" />
             Back to Anniversary
           </Button>
         </div>
         
-        <div className="mt-12 glass-card p-4 rounded-xl max-w-md mx-auto">
+        <div className="mt-8 sm:mt-12 glass-card p-3 sm:p-4 rounded-xl max-w-md mx-auto">
           <LoveQuotes />
         </div>
       </div>
