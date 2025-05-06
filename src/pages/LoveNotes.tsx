@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import HeartBackground from "@/components/HeartBackground";
 import FallingHearts from "@/components/FallingHearts";
 import MusicPlayer from "@/components/MusicPlayer";
-import LoveQuotes from "@/components/LoveQuotes";
 
 const loveNotes = [
   {
@@ -218,10 +217,6 @@ const LoveNotes = () => {
             <Heart className="mr-2 w-4 h-4 sm:w-5 sm:h-5" size={16} fill="white" />
             Back to Anniversary
           </Button>
-        </div>
-        
-        <div className="mt-8 sm:mt-12 glass-card p-3 sm:p-4 rounded-xl max-w-md mx-auto">
-          <LoveQuotes />
         </div>
       </div>
     </div>

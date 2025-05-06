@@ -8,7 +8,6 @@ import LoveTree from "@/components/LoveTree";
 import MemoryGallery from "@/components/MemoryGallery";
 import MusicPlayer from "@/components/MusicPlayer";
 import FallingHearts from "@/components/FallingHearts";
-import LoveQuotes from "@/components/LoveQuotes";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import PageTransition from "@/components/PageTransition";
