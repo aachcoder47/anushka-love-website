@@ -55,13 +55,7 @@ const Index = () => {
       </div>
 
       {/* Love Quotes Card - Now positioned bottom right with responsive positioning */}
-      <div className="fixed bottom-4 right-4 z-50 w-48 sm:w-64 transition-all duration-500 animate-fade-in">
-        <Card className="bg-white/80 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 border-love/20">
-          <CardContent className="p-2 sm:p-4">
-            <LoveQuotes />
-          </CardContent>
-        </Card>
-      </div>
+     
 
       <div className="flex flex-col items-center gap-4 sm:gap-6 justify-center relative z-10 mt-[-50px] sm:mt-[-100px] px-4">
         <div className="flex items-center gap-2 sm:gap-3 justify-center">
