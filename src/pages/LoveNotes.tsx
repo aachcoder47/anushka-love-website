@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -13,33 +12,38 @@ import LoveQuotes from "@/components/LoveQuotes";
 const loveNotes = [
   {
     title: "When I First Saw You",
-    content: "The moment our eyes met, I knew my heart would never be the same. Your smile lit up the room and I couldn't look away.",
+    content: "like babe ik boht plan kr k apn mile the 1st time bt that was the best part of my life like jb apn mile ik thoda alg bhi th aate hi mrkoo suuuu bt still bda sweet moment th yrr mrko both relax feel hua th baby🤭🫀 ",
     color: "#FF6B8B",
-    icon: Heart
+    icon: Heart,
+    showIcon: true
   },
   {
     title: "My Favorite Memory",
-    content: "Remember that night under the stars? You pointed at constellations and I was just looking at you, thinking how lucky I am to have found someone so perfect.",
+    content: "Remember that day baacha jb apn decide kiye ki apn milenge and mai trko ring pehnaunga mai both shyy baacha th bt still mera boht mn th so apn move kiye nect day teri frnds thi still apn idk how bt kr liyee🤭🤭🤭",
     color: "#FF8E9E",
-    icon: Star
+    icon: Star,
+    showIcon: true
   },
   {
     title: "What You Mean To Me",
-    content: "You're my best friend, my confidant, my partner in everything. You make every day brighter just by being in it. Your laugh is my favorite sound.",
+    content: "You're my best friend,💕  my confidant, 🎀 my partner in everything. 🤭🎀✨ anddd my cutiee wifeyyy🙈 my rabbit✨ my darling💖my mommie🙈 mahhhh everythinggg🙈🫀",
     color: "#FFA6B5",
-    icon: Heart
+    icon: Heart,
+    showIcon: true
   },
   {
     title: "My Promise",
-    content: "I promise to stand by you through every storm, to hold your hand when you need strength, and to love you with all my heart for all of my days.",
+    content: "I promise baby apn humesa sathh rhengee in every situationss mai humesa apke sath hu jaan🫀 aap mere cutieww baby ho aapko thodii kbhii chor skta even imagine bhii nhi kr skta so baby i promise apn humesa hr saal ye celebrate krenge darlingg🤭🎀✨. ",
     color: "#FFB8C5",
-    icon: Gift
+    icon: Gift,
+    showIcon: true
   },
   {
-    title: "Our Future",
-    content: "I dream of growing old with you, of building a life filled with adventures, laughter, and unconditional love. Every day with you is a gift I cherish.",
+    title: "At the End",
+    content: "lastlyyy i wanna sayy that baachaa u mean eveything to me so pleasee kbhii mt chorna apne baache ko 🤭 baakii baacha apne mpmmie ko bhii kbhii chorega🎀cuz bina mommie k baacha reh hi nhii sktaa and darloo apna khayal rkha kroo okhieee i lovee u babyiee 🤭 andd happy anniversary to meriii mehbooba merii jaan sab kuch hehe🤭🎀✨",
     color: "#FFD4DC",
-    icon: Star
+    icon: Star,
+    showIcon: true
   }
 ];
 
@@ -152,7 +156,7 @@ const LoveNotes = () => {
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-love-light to-love/20 rounded-tr-full opacity-50"></div>
           
           <CardContent className="p-8 relative z-10">
-            <div className="grid gap-6">
+            <div className="space-y-8">
               {loveNotes.map((note, index) => {
                 const IconComponent = note.icon;
                 
@@ -165,48 +169,39 @@ const LoveNotes = () => {
                     onMouseEnter={() => setHoveredNote(index)}
                     onMouseLeave={() => setHoveredNote(null)}
                   >
-                    <div className="relative bg-gradient-to-r from-white/50 to-white/90 p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-                      <div 
-                        className={`absolute -left-2 top-0 h-full w-1 rounded-full transition-all duration-300 ${
-                          hoveredNote === index ? 'w-1.5' : 'w-1'
-                        }`}
-                        style={{ backgroundColor: note.color, boxShadow: hoveredNote === index ? `0 0 8px ${note.color}` : 'none' }} 
-                      />
-                      <div className="pl-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div 
-                            className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${
-                              hoveredNote === index ? 'animate-heartbeat' : ''
-                            }`} 
-                            style={{ 
-                              backgroundColor: hoveredNote === index ? note.color : 'transparent',
-                              transform: hoveredNote === index ? 'scale(1.1)' : 'scale(1)',
-                              boxShadow: hoveredNote === index ? `0 0 10px ${note.color}` : 'none'
-                            }}
-                          >
-                            <IconComponent 
-                              className="transition-all duration-300" 
-                              size={18} 
-                              fill={hoveredNote === index ? "white" : note.color}
-                              stroke={hoveredNote === index ? "white" : note.color}
-                            />
-                          </div>
-                          <h3 className="text-xl font-semibold text-love-dark font-dancing">{note.title}</h3>
-                        </div>
-                        <p className="text-gray-700 italic font-dancing text-lg ml-1 leading-relaxed">{note.content}</p>
-                      </div>
-                      
-                      {hoveredNote === index && (
-                        <div className="absolute -right-2 -bottom-2 transform rotate-12 transition-all duration-500 ease-in-out opacity-70">
-                          <div className="relative">
-                            <IconComponent size={32} fill={note.color} />
-                            <div className="absolute inset-0 animate-pulse-glow" style={{ boxShadow: `0 0 15px ${note.color}` }}></div>
-                          </div>
+                    <div className="flex items-start gap-4">
+                      {note.showIcon && (
+                        <div 
+                          className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${
+                            hoveredNote === index ? 'animate-heartbeat' : ''
+                          }`} 
+                          style={{ 
+                            backgroundColor: hoveredNote === index ? note.color : 'transparent',
+                            transform: hoveredNote === index ? 'scale(1.1)' : 'scale(1)',
+                            boxShadow: hoveredNote === index ? `0 0 10px ${note.color}` : 'none'
+                          }}
+                        >
+                          <IconComponent 
+                            className="transition-all duration-300" 
+                            size={18} 
+                            fill={hoveredNote === index ? "white" : note.color}
+                            stroke={hoveredNote === index ? "white" : note.color}
+                          />
                         </div>
                       )}
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-love-dark font-dancing mb-2">{note.title}</h3>
+                        <p className="text-gray-700 italic font-dancing text-lg leading-relaxed">{note.content}</p>
+                      </div>
                     </div>
-                    {index < loveNotes.length - 1 && (
-                      <div className="border-b border-dashed border-love/20 my-4" />
+                    
+                    {hoveredNote === index && (
+                      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 rotate-12 transition-all duration-500 ease-in-out opacity-70">
+                        <div className="relative">
+                          <IconComponent size={32} fill={note.color} />
+                          <div className="absolute inset-0 animate-pulse-glow" style={{ boxShadow: `0 0 15px ${note.color}` }}></div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 );

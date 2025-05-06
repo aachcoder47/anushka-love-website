@@ -16,23 +16,23 @@ interface MemoryGalleryProps {
 const memories = [
   {
     image: "/lovable-uploads/IMG-20250502-WA0012.jpg",
-    caption: "Our beautiful moments together ❤️"
+    caption: "Uffffffff kiti pyarrii lagg rhiii traditional mai baachha 🙈❤️"
   },
   {
     image: "/lovable-uploads/IMG-20250502-WA0013.jpg",
-    caption: "Every moment with you is special"
+    caption: "Mahhh cutieew little angryy birddd🙈✨"
   },
   {
     image: "/lovable-uploads/IMG-20250502-WA0014.jpg",
-    caption: "Making memories that last forever"
+    caption: "Cutiesttt thing on earth🙈🫀✨"
   },
   {
     image: "/lovable-uploads/IMG-20250502-WA0015.jpg",
-    caption: "You make my heart smile"
+    caption: "sigmaa sigmaaa gurll sigmaa gurl 😎🫀"
   },
   {
     image: "/lovable-uploads/IMG-20250502-WA0016.jpg",
-    caption: "Together is my favorite place to be"
+    caption: "Obsessedddd withhhh thiis bhy🫀🙈❤️"
   }
 ];
 

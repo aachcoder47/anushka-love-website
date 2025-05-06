@@ -96,13 +96,12 @@ const Anniversary = () => {
         <div className={`bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-8 mb-12 relative transition-all duration-1000 transform ${visibleSections.message ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} hover:shadow-2xl hover:scale-[1.01] transition-all duration-300`}>
           <h2 className="text-4xl font-bold text-love-dark mb-6 font-dancing animate-float">Two Years of Magic</h2>
           <p className="text-lg text-gray-700 mb-4 first-letter:text-4xl first-letter:font-bold first-letter:text-love-dark first-letter:mr-1 first-letter:float-left">
-            Time flies when I'm with you. These two years have been filled with countless smiles, endless adventures, and a love that grows stronger with each passing day.
+          Heyyyy babyiee 🤭🎀✨ itss our anniversary 💕 anddd i loveeee u sooo muchh baachaa apn ek sath 2yrs complete krliye yeahh🤭🫀 literally  yrrr We started this beautiful journey on 6th May 2023, 🤭🎀 ndd since that day, we’ve faced so many ups and downs, yet here we are—stronger than ever! 🙈🫀✨Through every challenge, our love never faded, our care never lessened, 💕✨and our trust only grew deeper. Thank you for standing by me, 👉👈for being my biggest support, ❤my happiness, and my everything. 🎀✨I’m truly lucky to have you in my life babyieeee🤭          </p>
+          <p className="text-lg text-gray-700 mb-4">
+            You make every moment special,🤭 every day brighter,🎀✨ and my life complete. 🤭🫀 
           </p>
           <p className="text-lg text-gray-700 mb-4">
-            You make every moment special, every day brighter, and my life complete. Here's to us and all the beautiful memories we've created together.
-          </p>
-          <p className="text-lg text-gray-700 mb-4">
-            Thank you for being my perfect partner, best friend, and soulmate. I fall in love with you more and more each day.
+            Thank you for being my perfect partner,🤭🫀best friend, wifeeyy💕 and soulmate.🫀✨I fall in love with you more and more each day.🙈🫀✨
           </p>
           <div className="text-2xl font-bold text-love mt-8 text-center animate-heartbeat font-dancing">
             💖 Two Years Down, Forever to Go 💖
@@ -114,7 +113,7 @@ const Anniversary = () => {
         
         <div className={`mb-12 transition-all duration-1000 transform ${visibleSections.gallery ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-4xl font-bold text-love-dark font-dancing">Our Love Story</h2>
+            <h2 className="text-4xl font-bold text-love-dark font-dancing">Mera Cutiewww baacha 🙈🫀✨</h2>
             <Button 
               className="bg-love hover:bg-love-dark group"
               onClick={() => handleNavigation("/memories", "Let's revisit our beautiful journey together...")}
@@ -149,7 +148,7 @@ const Anniversary = () => {
               onClick={() => handleNavigation("/love-notes", "Words can't express how much you mean to me...")}
             >
               <Heart className="mr-2" fill="white" />
-              <span>Read My Love Notes</span>
+              <span>For you darlinggg 🙈</span>
               <Heart className="ml-2" fill="white" />
             </Button>
           </div>

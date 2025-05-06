@@ -48,7 +48,7 @@ const Memories = () => {
         
         <div className="text-center mb-12 relative">
           <h1 className="text-5xl md:text-6xl font-bold text-love-dark mb-4 animate-float">Our Beautiful Journey</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Every photograph captures a moment of our love story, freezing in time the joy we share together.</p>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">heyyyyy thiss iss mahhh cutieeww little angel🫀✨ mahhhh cutiewwww babyieee🙈🫀✨</p>
           
           <div className="absolute -right-10 -top-10 opacity-40">
             <Heart size={80} className="text-love fill-love/20 animate-heartbeat" />
@@ -62,9 +62,9 @@ const Memories = () => {
         </div>
         
         <div className="text-center mt-10 bg-white/60 backdrop-blur-sm p-6 rounded-lg shadow-md max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-love-dark mb-4">Memories We've Made</h2>
+          <h2 className="text-3xl font-bold text-love-dark mb-4">Mera Rabbit🤭</h2>
           <p className="text-gray-700 mb-6">
-            These moments we've shared are the foundation of our love story. Each picture represents a chapter in our journey together - filled with laughter, adventures, and the beautiful connection we share.
+            hehe 🤭 see kita pyara baacha h meraa nazar na lge thu thu thuu🧿🧿🧿🧿 andd babyieee aapkoo pta hoga bt still mai bata detaa ki aap kitee pyaree ho 🙈🙈 ekdammmm Sexieeee ho🤭hotieee bhii ho🤭🤭 andd cutiee to hayyee🙈🫀✨ by nature and behavior too🙈 and thoda aapki bhii tarrif ki jayee🤭 aapke pyare pyare lips k bare mai🤭🤭 pyaare eyess k bare mai🎀✨neck ,boobiee👉👈 hehe and aapka navell bhyy obsessed hu ekdam mai🤭🎀✨ no wrds uske liyee and aapka thighs wo to ekdamm dekh k kuch kuch hota hehe👉👈bss bss ab jada nhii krunga mere baache ko nazar na lag jayeee thu thu thuu🧿🧿 nd I LOVEEEE YOUU SOOO MUCHHHH JANEMANNN🙈🫀 muahhhhhh💋💋💋💋💋💋 or lo bby sharmaoo matt muahhhh smoochiiiii💋💋💋💋💋💋💋💋💋💋 bsss ab mrkoo sharam aane lgaa🤭🤭🤭🎀.
           </p>
           <Button 
             className="bg-love hover:bg-love-dark text-white transition-all duration-300 hover:scale-105"

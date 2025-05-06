@@ -11,7 +11,7 @@ import HeartBackground from "@/components/HeartBackground";
 import FallingHearts from "@/components/FallingHearts";
 
 // The correct password - in a real app, this would be stored securely
-const CORRECT_PASSWORD = "anushka";
+const CORRECT_PASSWORD = "anuyanshforever";
 
 interface PasswordFormValues {
   password: string;
